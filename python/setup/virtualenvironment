@@ -1,0 +1,11 @@
+<base> ~cd C:\virtualenvironment
+<base> C:\virtualenvironment>mkdir myproject
+<base> C:\virtualenvironment>cd myproject
+<base> C:\virtualenvironment\myproject>pip install virtualenv
+<base> C:\virtualenvironment\myproject>virtualenv env
+Using base prefix 'c:\\programdata\\anaconda3'
+New python executable in C:\virtualenvironment\myproject\env\Scripts\python.exe
+Installing setuptools, pip, wheel...done.
+
+<base> C:\virtualenvironment\myproject>env\Scripts\activate
+<env><base> C:\virtualenvironment\myproject\
