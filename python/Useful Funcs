@@ -1,0 +1,23 @@
+'''
+record useful functions
+Created on Thu Aug 28 17:32:09 2018
+
+@author: QYang
+'''
+
+# Takes a ticker and imitates Bloomberg's BDH. Refer to bloomberg.py for documentation.
+import bloomberg
+import datetime as dt
+blp = bloomberg.BLPInterface()
+def get_bloomberg_data(ticker, fields, start_time, end_time=dt.datetime.now()):
+    data = blp.historicalRequest(ticker, fields, start_time, end_time, periodicitySelection = 'DAILY')
+    data.index.name = 'Date'
+    return data
+   
+   
+# Takes a dataframe of its corresponding product and saves it to the SQL server and as a spreadsheet.
+csv_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + '/CSV'
+def save_data(data, product, csv_path):
+    print("Saving data for {}".format(product))
+#    data.to_sql(product, engine, if_exists='replace')
+    data.to_csv(csv_path + '/' + '{}.csv'.format(product))
