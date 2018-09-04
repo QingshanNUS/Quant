@@ -21,3 +21,11 @@ def save_data(data, product, csv_path):
     print("Saving data for {}".format(product))
 #    data.to_sql(product, engine, if_exists='replace')
     data.to_csv(csv_path + '/' + '{}.csv'.format(product))
+
+#displot: hist + density curve
+import seaborn as sns
+import matplotlib as mpl
+sns.set_palette('hls')
+mpl.rc('figure', figsize=(9,5))
+data = randn(200)
+sns.distplot(data)
