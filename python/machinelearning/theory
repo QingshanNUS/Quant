@@ -1,0 +1,18 @@
+Machine Learning Theory
+16 October 2018
+
+Supervised Learning: Classification/Regression
+Unsupervised Learning
+Reinforcement Learning
+
+Supervised Learning Algorithms:
+- Logistic Regression
+- Decision Trees
+- Neural Networks
+- Convolutional Neural Networks
+- Recurrent Neural Networks
+
+Bias: Machine refuses to learning anything from training - Variance: Learnings only the training data set
+
+DataSet - Training - Validation - Test
+
