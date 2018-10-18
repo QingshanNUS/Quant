@@ -13,6 +13,6 @@ Supervised Learning Algorithms:
 - Recurrent Neural Networks
 
 Bias: Machine refuses to learning anything from training - Variance: Learnings only the training data set
+To solve Bias - Train Longer/Bigger Network, Variance - More data/Regularization/Dropout
 
 DataSet - Training - Validation - Test
-
