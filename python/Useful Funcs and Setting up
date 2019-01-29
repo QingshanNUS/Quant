@@ -1,0 +1,202 @@
+'''
+record useful functions
+Created on Thu Aug 28 17:32:09 2018
+
+@author: QYang
+'''
+
+# Takes a ticker and imitates Bloomberg's BDH. Refer to bloomberg.py for documentation.
+import bloomberg
+import datetime as dt
+blp = bloomberg.BLPInterface()
+def get_bloomberg_data(ticker, fields, start_time, end_time=dt.datetime.now()):
+    data = blp.historicalRequest(ticker, fields, start_time, end_time, periodicitySelection = 'DAILY')
+    data.index.name = 'Date'
+    return data
+   
+   
+# Takes a dataframe of its corresponding product and saves it to the SQL server and as a spreadsheet.
+csv_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + '/CSV'
+def save_data(data, product, csv_path):
+    print("Saving data for {}".format(product))
+#    data.to_sql(product, engine, if_exists='replace')
+    data.to_csv(csv_path + '/' + '{}.csv'.format(product))
+
+#displot: hist + density curve
+import seaborn as sns
+import matplotlib as mpl
+sns.set_palette('hls')
+mpl.rc('figure', figsize=(9,5))
+data = randn(200)
+sns.distplot(data)
+
+
+STEP 1
+
+======
+
+ 
+
+"""
+
+<base> ~cd C:\virtualenvironment
+
+<base> C:\virtualenvironment>mkdir myproject
+
+<base> C:\virtualenvironment>cd myproject
+
+<base> C:\virtualenvironment\myproject>pip install virtualenv
+
+<base> C:\virtualenvironment\myproject>virtualenv env
+
+Using base prefix 'c:\\programdata\\anaconda3'
+
+New python executable in C:\virtualenvironment\myproject\env\Scripts\python.exe
+
+Installing setuptools, pip, wheel...done.
+
+ 
+
+<base> C:\virtualenvironment\myproject>env\Scripts\activate
+
+ 
+
+ 
+
+--------------------------If we don't want to set up virtualenvironment, then start from here-------------------------------------
+
+ 
+
+ 
+
+<env><base> C:\virtualenvironment\myproject\pip install git #if cannot -->conda install git:
+
+<env><base> C:\virtualenvironment\myproject\pip install git+https://github.com/mhallsmoore/qstrader.git
+
+<env><base> C:\virtualenvironment\myproject\pip install -r https://raw.githubusercontent.com/mhallsmoore/qstrader/master/requirements.txt
+
+<env><base> C:\virtualenvironment\myproject\mkdir qstrader\examples data out
+
+ 
+
+ 
+
+STEP 2
+
+======
+
+ 
+
+update environment vairanble 'PYTHONPATH'
+
+- under control panel -> system properties -> environment variables:
+
+  E:\dev\PythonScripts;E:\dev\virtualenv\env\Lib\site-packages
+
+ 
+
+ 
+
+Under spyder -> Preferences -> Python interpreter, change to:
+
+E:/dev/virtualenv/env/Scripts/python.exe
+
+ 
+
+ 
+
+STEP 3
+
+======
+
+ 
+
+install additional packages
+
+- pip install pyyaml
+
+- pip install munch
+
+- pip install multipledispatch
+
+- pip install scipy
+
+- pip install ipykernel cloudpickle
+
+ 
+
+ 
+
+STEP 4
+
+======
+
+ 
+
+runfile('E:/dev/virtualenv/qstrader/examples/buy_and_hold_backtest.py', wdir='E:/dev/virtualenv/qstrader/examples')
+
+A configuration file named '~/qstrader.yml' is missing
+
+ 
+
+Creating this file
+
+ 
+
+---
+
+CSV_DATA_DIR: ~/data
+
+OUTPUT_DIR: ~/out
+
+ 
+
+ 
+
+After running, need to update the file: C:\Users\mzou\qstrader.yml
+
+For example:
+
+ 
+
+---
+
+CSV_DATA_DIR: E:\dev\virtualenv\data
+
+OUTPUT_DIR: E:\dev\virtualenv\out
+
+ 
+
+ 
+
+STEP 5
+
+======
+
+if import module failed for "from qstrader.trading_session import TradingSession"
+
+-> check version of matplotlib and update
+
+-> conda install matplotlib=2.1.2
+
+ 
+
+ 
+
+STEP 6
+
+======
+
+commission setting is in:
+
+C:\ProgramData\Anaconda3\Lib\site-packages\qstrader\execution_handler\ib_simulated.py
+
+Be aware of that commission fees must be a float number
+
+ 
+
+trading frequency setting is in:
+
+C:\ProgramData\Anaconda3\Lib\site-packages\qstrader\statistics\tearsheet.py
+
+
