@@ -69,13 +69,15 @@ Installing setuptools, pip, wheel...done.
 
  
 
-<env><base> C:\virtualenvironment\myproject\pip install git #if cannot -->conda install git:
+<env><base> C:\virtualenvironment\myproject\pip install git #if cannot -->conda install git: #do remember to set environment variables
+* for special IT setting --> git config --global http.proxy http[s]://userName:password@proxyaddress:port
 
 <env><base> C:\virtualenvironment\myproject\pip install git+https://github.com/mhallsmoore/qstrader.git
 
-<env><base> C:\virtualenvironment\myproject\pip install -r https://raw.githubusercontent.com/mhallsmoore/qstrader/master/requirements.txt
-
+<env><base> C:\virtualenvironment\myproject\pip install -r https://raw.githubusercontent.com/QingshanNUS/qstrader/master/requirements.txt
+* download the file if cannot access directly
 <env><base> C:\virtualenvironment\myproject\mkdir qstrader\examples data out
+*or change to your own folders
 
  
 
@@ -153,7 +155,7 @@ OUTPUT_DIR: ~/out
 
  
 
-After running, need to update the file: C:\Users\mzou\qstrader.yml
+After running, need to update the file: C:\Users\yourusername\qstrader.yml
 
 For example:
 
