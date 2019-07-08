@@ -31,6 +31,9 @@ data = randn(200)
 sns.distplot(data)
 
 
+
+
+#Qstrader Set up
 STEP 1
 
 ======
